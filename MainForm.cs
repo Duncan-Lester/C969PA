@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Google.Protobuf.WellKnownTypes;
+using MySql.Data.MySqlClient;
 using MySqlX.XDevAPI.Relational;
 using System;
 using System.Collections;
@@ -21,6 +22,7 @@ namespace C969PA
         {
             InitializeComponent();
             appCalendar.DataSource = getCalendar(monthRadio.Checked);
+            customerGrid.DataSource = getCustomers();
             reminder(appCalendar);
         }
 
@@ -109,7 +111,7 @@ namespace C969PA
             // makes final DataSource to bind to the calendar and show user.
             var appArray = from row in parsedApps 
             select new {
-                               ID = row.Key,
+                              AppointmentID = row.Key,
                               Type = row.Value["type"],
                               StartTime = DataManager.convertToTimeZone(row.Value["Start"].ToString()),
                               EndTime = DataManager.convertToTimeZone(row.Value["End"].ToString()),
@@ -122,7 +124,49 @@ namespace C969PA
         {
             appCalendar.DataSource= getCalendar(monthRadio.Checked);
         }
-        private void exitButton_Click(object sender, EventArgs e)
+
+        static public Array getCustomers()
+        {
+            MySqlConnection con = new MySqlConnection(DataManager.conString);
+            con.Open();
+            string query = $"Select customerID, customerName, addressID From customer";
+            MySqlCommand com = new MySqlCommand(query, con);
+            MySqlDataReader dr = com.ExecuteReader();
+
+            Dictionary<int, Hashtable> customers = new Dictionary<int, Hashtable>();
+            while (dr.Read())
+            {
+                Hashtable cust = new Hashtable();
+                cust.Add("customerId", dr[0]);
+                cust.Add("customerName", dr[1]);
+                cust.Add("addressId", dr[2]);
+                customers.Add(Convert.ToInt32(dr[0]), cust);
+            }
+            dr.Close();
+            foreach (var customer in customers.Values)
+            {
+                query = $"SELECT address, phone FROM address WHERE addressId = '{customer["addressId"]}'";
+                com = new MySqlCommand(query, con);
+                dr = com.ExecuteReader();
+                dr.Read();
+                customer.Add("address", dr[0]);
+                customer.Add("phone", dr[1]);
+                dr.Close();
+            }
+            var addArray = from row in customers
+                           select new
+                           {
+
+                               CustomerID = row.Key,
+                               Name = row.Value["customerName"],
+                               Address = row.Value["address"],
+                               Phone = row.Value["phone"],
+                           };
+            con.Close();
+            return addArray.ToArray();
+
+        }
+            private void exitButton_Click(object sender, EventArgs e)
         {
             loginForm.Close();
         }

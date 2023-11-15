@@ -35,9 +35,6 @@
             this.monthRadio = new System.Windows.Forms.RadioButton();
             this.exitButton = new System.Windows.Forms.Button();
             this.customerGrid = new System.Windows.Forms.DataGridView();
-            this.custName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.custAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.custNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addCustomerButton = new System.Windows.Forms.Button();
             this.updCustomerButton = new System.Windows.Forms.Button();
             this.delCustomerButton = new System.Windows.Forms.Button();
@@ -54,7 +51,7 @@
             // customersLabel
             // 
             this.customersLabel.AutoSize = true;
-            this.customersLabel.Location = new System.Drawing.Point(133, 27);
+            this.customersLabel.Location = new System.Drawing.Point(208, 27);
             this.customersLabel.Name = "customersLabel";
             this.customersLabel.Size = new System.Drawing.Size(56, 13);
             this.customersLabel.TabIndex = 0;
@@ -115,29 +112,10 @@
             // customerGrid
             // 
             this.customerGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.customerGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.custName,
-            this.custAddress,
-            this.custNumber});
             this.customerGrid.Location = new System.Drawing.Point(30, 54);
             this.customerGrid.Name = "customerGrid";
-            this.customerGrid.Size = new System.Drawing.Size(338, 434);
+            this.customerGrid.Size = new System.Drawing.Size(447, 434);
             this.customerGrid.TabIndex = 7;
-            // 
-            // custName
-            // 
-            this.custName.HeaderText = "Name";
-            this.custName.Name = "custName";
-            // 
-            // custAddress
-            // 
-            this.custAddress.HeaderText = "Address";
-            this.custAddress.Name = "custAddress";
-            // 
-            // custNumber
-            // 
-            this.custNumber.HeaderText = "Phone Number";
-            this.custNumber.Name = "custNumber";
             // 
             // addCustomerButton
             // 
@@ -174,9 +152,9 @@
             // appCalendar
             // 
             this.appCalendar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.appCalendar.Location = new System.Drawing.Point(432, 54);
+            this.appCalendar.Location = new System.Drawing.Point(554, 54);
             this.appCalendar.Name = "appCalendar";
-            this.appCalendar.Size = new System.Drawing.Size(975, 434);
+            this.appCalendar.Size = new System.Drawing.Size(853, 434);
             this.appCalendar.TabIndex = 11;
             // 
             // delAppButton
@@ -215,7 +193,7 @@
             // 
             this.groupBox1.Controls.Add(this.monthRadio);
             this.groupBox1.Controls.Add(this.weekRadio);
-            this.groupBox1.Location = new System.Drawing.Point(432, 494);
+            this.groupBox1.Location = new System.Drawing.Point(554, 494);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(259, 40);
             this.groupBox1.TabIndex = 15;
@@ -260,9 +238,6 @@
         private System.Windows.Forms.RadioButton monthRadio;
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.DataGridView customerGrid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn custName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn custAddress;
-        private System.Windows.Forms.DataGridViewTextBoxColumn custNumber;
         private System.Windows.Forms.Button addCustomerButton;
         private System.Windows.Forms.Button updCustomerButton;
         private System.Windows.Forms.Button delCustomerButton;
