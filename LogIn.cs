@@ -29,7 +29,7 @@ namespace C969PA
                 message = "Le nom d'utilisateur et le mot de passe ne correspondent pas.";
             }
         }
-        static public int findUserID(string userName, string password)
+        static public int findUser(string userName, string password)
         {
             MySqlConnection con = new MySqlConnection(ConfigurationManager.ConnectionStrings["localdb"].ConnectionString);
             con.Open();
@@ -39,17 +39,22 @@ namespace C969PA
             if (reader.HasRows)
             {
                 reader.Read();
+                DataManager.setCurrentUserID(Convert.ToInt32(reader[0]));
+                DataManager.setCurrentUsername(userName);
+                reader.Close();
+                con.Close();
+                //Console.WriteLine(DataManager.getCurrentUserID());
                 return 1; 
             }
             return 0;
         }
         private void logInButtonClick(object sender, EventArgs e)
         {
-            if (findUserID(usernameBox.Text, passwordBox.Text) ==1)
+            if (findUser(usernameBox.Text, passwordBox.Text) ==1)
             {
                 this.Hide();
                 MainForm MainForm = new MainForm();
-                // MainForm.logInForm = this;
+                MainForm.loginForm = this;
                 UserActLogger.writeUserLogInToLog(usernameBox.Text);
                 MainForm.Show();
             }
