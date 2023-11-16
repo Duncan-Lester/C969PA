@@ -153,32 +153,39 @@ namespace C969PA
                 customer.Add("phone", dr[1]);
                 dr.Close();
             }
-            var addArray = from row in customers
+            //same final array logic as above, but to make customers
+            var custArray = from row in customers
                            select new
                            {
-
                                CustomerID = row.Key,
                                Name = row.Value["customerName"],
                                Address = row.Value["address"],
                                Phone = row.Value["phone"],
                            };
             con.Close();
-            return addArray.ToArray();
+            return custArray.ToArray();
 
         }
-            private void exitButton_Click(object sender, EventArgs e)
+        
+        public void updateCustomers()
+        {
+            customerGrid.DataSource = getCustomers();
+        }
+        private void exitButton_Click(object sender, EventArgs e)
         {
             loginForm.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //add new cust
+            AddCustomer addCustomer = new AddCustomer();
+            addCustomer.Show();
         }
 
         private void updCust_Click(object sender, EventArgs e)
         {
-            // update cust
+            UpdateCustomer updateCustomer = new UpdateCustomer();
+            updateCustomer.Show();
         }
 
         private void delCust_Click(object sender, EventArgs e)
@@ -188,15 +195,21 @@ namespace C969PA
 
         private void addApp_Click(object sender, EventArgs e)
         {
-            //add new app
+            AddApt addApt = new AddApt();
+            addApt.Show();
         }
         private void updApp_Click(object sender, EventArgs e)
         {
-            // upd old app
+            UpdateApt updateApt = new UpdateApt();
+            updateApt.Show();
         }
         private void delApp_Click(object sender, EventArgs e)
         {
             // del app with confirmation
+        }
+        private void monthRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            updateCal();
         }
     }
 }

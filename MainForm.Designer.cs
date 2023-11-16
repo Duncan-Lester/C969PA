@@ -60,16 +60,16 @@
             // apptsLabel
             // 
             this.apptsLabel.AutoSize = true;
-            this.apptsLabel.Location = new System.Drawing.Point(861, 27);
+            this.apptsLabel.Location = new System.Drawing.Point(614, 27);
             this.apptsLabel.Name = "apptsLabel";
-            this.apptsLabel.Size = new System.Drawing.Size(71, 13);
+            this.apptsLabel.Size = new System.Drawing.Size(66, 13);
             this.apptsLabel.TabIndex = 1;
-            this.apptsLabel.Text = "Appointments";
+            this.apptsLabel.Text = "Appointment";
             // 
             // calendarLabel
             // 
             this.calendarLabel.AutoSize = true;
-            this.calendarLabel.Location = new System.Drawing.Point(1009, 27);
+            this.calendarLabel.Location = new System.Drawing.Point(686, 27);
             this.calendarLabel.Name = "calendarLabel";
             this.calendarLabel.Size = new System.Drawing.Size(49, 13);
             this.calendarLabel.TabIndex = 2;
@@ -82,9 +82,9 @@
             this.weekRadio.Name = "weekRadio";
             this.weekRadio.Size = new System.Drawing.Size(61, 17);
             this.weekRadio.TabIndex = 3;
-            this.weekRadio.TabStop = true;
             this.weekRadio.Text = "Weekly";
             this.weekRadio.UseVisualStyleBackColor = true;
+            this.weekRadio.CheckedChanged += new System.EventHandler(this.monthRadioButton_CheckedChanged);
             // 
             // monthRadio
             // 
@@ -97,6 +97,7 @@
             this.monthRadio.TabStop = true;
             this.monthRadio.Text = "Monthly";
             this.monthRadio.UseVisualStyleBackColor = true;
+            this.monthRadio.CheckedChanged += new System.EventHandler(this.monthRadioButton_CheckedChanged);
             // 
             // exitButton
             // 
@@ -193,7 +194,7 @@
             // 
             this.groupBox1.Controls.Add(this.monthRadio);
             this.groupBox1.Controls.Add(this.weekRadio);
-            this.groupBox1.Location = new System.Drawing.Point(554, 494);
+            this.groupBox1.Location = new System.Drawing.Point(1148, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(259, 40);
             this.groupBox1.TabIndex = 15;
