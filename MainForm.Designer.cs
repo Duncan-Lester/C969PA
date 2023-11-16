@@ -50,7 +50,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.customerGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appCalendar)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -129,11 +129,11 @@
             // addCustomerButton
             // 
             this.addCustomerButton.BackColor = System.Drawing.Color.LightGreen;
-            this.addCustomerButton.Location = new System.Drawing.Point(114, 525);
+            this.addCustomerButton.Location = new System.Drawing.Point(82, 525);
             this.addCustomerButton.Name = "addCustomerButton";
-            this.addCustomerButton.Size = new System.Drawing.Size(75, 23);
+            this.addCustomerButton.Size = new System.Drawing.Size(107, 23);
             this.addCustomerButton.TabIndex = 8;
-            this.addCustomerButton.Text = "Add";
+            this.addCustomerButton.Text = "Add Customer";
             this.addCustomerButton.UseVisualStyleBackColor = false;
             this.addCustomerButton.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -150,11 +150,11 @@
             // delCustomerButton
             // 
             this.delCustomerButton.BackColor = System.Drawing.Color.LightCoral;
-            this.delCustomerButton.Location = new System.Drawing.Point(307, 525);
+            this.delCustomerButton.Location = new System.Drawing.Point(292, 525);
             this.delCustomerButton.Name = "delCustomerButton";
-            this.delCustomerButton.Size = new System.Drawing.Size(75, 23);
+            this.delCustomerButton.Size = new System.Drawing.Size(128, 23);
             this.delCustomerButton.TabIndex = 10;
-            this.delCustomerButton.Text = "Delete";
+            this.delCustomerButton.Text = "Delete Customer";
             this.delCustomerButton.UseVisualStyleBackColor = false;
             this.delCustomerButton.Click += new System.EventHandler(this.delCust_Click);
             // 
@@ -173,7 +173,7 @@
             this.delAppButton.Name = "delAppButton";
             this.delAppButton.Size = new System.Drawing.Size(75, 23);
             this.delAppButton.TabIndex = 14;
-            this.delAppButton.Text = "Delete";
+            this.delAppButton.Text = "Delete Apt";
             this.delAppButton.UseVisualStyleBackColor = false;
             this.delAppButton.Click += new System.EventHandler(this.delApp_Click);
             // 
@@ -194,7 +194,7 @@
             this.addAppButton.Name = "addAppButton";
             this.addAppButton.Size = new System.Drawing.Size(75, 23);
             this.addAppButton.TabIndex = 12;
-            this.addAppButton.Text = "Add";
+            this.addAppButton.Text = "Add Apt";
             this.addAppButton.UseVisualStyleBackColor = false;
             this.addAppButton.Click += new System.EventHandler(this.addApp_Click);
             // 
@@ -273,21 +273,21 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button5
+            // label4
             // 
-            this.button5.Location = new System.Drawing.Point(552, 491);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(181, 23);
-            this.button5.TabIndex = 23;
-            this.button5.Text = "Refresh Apts";
-            this.button5.UseVisualStyleBackColor = true;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(452, 495);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(259, 13);
+            this.label4.TabIndex = 23;
+            this.label4.Text = "Select a Name, then click Add for a new appointment";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1437, 601);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -343,7 +343,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label4;
     }
 }
 

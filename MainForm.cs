@@ -184,7 +184,10 @@ namespace C969PA
 
         private void updCust_Click(object sender, EventArgs e)
         {
-            UpdateCustomer updateCustomer = new UpdateCustomer();
+            string currName = $"{customerGrid.CurrentRow.Cells["Name"].Value}";
+            string currPhone = $"{customerGrid.CurrentRow.Cells["Phone"].Value}";
+            string currAddress = $"{customerGrid.CurrentRow.Cells["Address"].Value}";
+            UpdateCustomer updateCustomer = new UpdateCustomer(currName,currPhone,currAddress);
             updateCustomer.Show();
         }
 
