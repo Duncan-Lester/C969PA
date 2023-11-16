@@ -190,7 +190,26 @@ namespace C969PA
 
         private void delCust_Click(object sender, EventArgs e)
         {
-            //delete cust w confirmation
+            DialogResult confirm = MessageBox.Show("Wait! This operation cannot be undone!", "Confirm Delete", MessageBoxButtons.YesNo);
+            if (confirm == DialogResult.Yes)
+            {
+                MySqlConnection con = new MySqlConnection(DataManager.conString);
+                con.Open();
+                //delete from cust
+                string custUpdate = $"DELETE FROM customer" +
+                    $" WHERE customerName= '{customerGrid.CurrentRow.Cells["Name"].Value}'";
+                MySqlCommand com = new MySqlCommand(custUpdate, con);
+                int custUpdated = com.ExecuteNonQuery();
+
+                // delete from address
+                string addUpdate = $"Delete From address" +
+                $" Where address= '{customerGrid.CurrentRow.Cells["Name"].Value}'";
+                com = new MySqlCommand(addUpdate, con);
+                int addUpdated = com.ExecuteNonQuery();
+
+                con.Close();
+                updateCustomers();
+            }
         }
 
         private void addApp_Click(object sender, EventArgs e)
@@ -210,6 +229,16 @@ namespace C969PA
         private void monthRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             updateCal();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            updateCustomers();
         }
     }
 }

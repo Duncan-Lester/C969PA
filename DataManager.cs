@@ -5,7 +5,9 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Ocsp;
 
 namespace C969PA
 {
@@ -17,7 +19,7 @@ namespace C969PA
         public static string conString = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
         public static string createTimeStamp()
         {
-            return DateTime.Now.ToString("u");
+            return DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         }
         public static int getCurrentUserID()
         {
@@ -81,6 +83,30 @@ namespace C969PA
             DateTime utcTime = DateTime.Parse(dateTime.ToString());
             DateTime localTime = utcTime.ToLocalTime();
             return localTime.ToString("MM/dd/yyyy hh:mm tt");
+        }
+
+        static public int createRecord(string timestamp, string userName, string table, string partOfQuery, int userId = 0)
+        {
+            int recId = createID(table);
+            string recInsert;
+            if (userId == 0)
+            {
+                recInsert = $"INSERT INTO {table}" +
+                $" VALUES ('{recId}', {partOfQuery}, '{timestamp}', '{userName}', '{timestamp}', '{userName}')";
+            }
+            else
+            {
+                recInsert = $"INSERT INTO {table} (appointmentId, customerId, start, end, type, userId, createDate, createdBy, lastUpdate, lastUpdateBy)" +
+                $" VALUES ('{recId}', {partOfQuery}, '{userId}', '{timestamp}', '{userName}', '{timestamp}', '{userName}')";
+            }
+
+            MySqlConnection c = new MySqlConnection(conString);
+            c.Open();
+            MySqlCommand cmd = new MySqlCommand(recInsert, c);
+            cmd.ExecuteNonQuery();
+            c.Close();
+
+            return recId;
         }
     }
 }

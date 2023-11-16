@@ -43,6 +43,14 @@
             this.updateAppButton = new System.Windows.Forms.Button();
             this.addAppButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.customerGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appCalendar)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -60,7 +68,7 @@
             // apptsLabel
             // 
             this.apptsLabel.AutoSize = true;
-            this.apptsLabel.Location = new System.Drawing.Point(614, 27);
+            this.apptsLabel.Location = new System.Drawing.Point(918, 31);
             this.apptsLabel.Name = "apptsLabel";
             this.apptsLabel.Size = new System.Drawing.Size(66, 13);
             this.apptsLabel.TabIndex = 1;
@@ -69,7 +77,7 @@
             // calendarLabel
             // 
             this.calendarLabel.AutoSize = true;
-            this.calendarLabel.Location = new System.Drawing.Point(686, 27);
+            this.calendarLabel.Location = new System.Drawing.Point(990, 31);
             this.calendarLabel.Name = "calendarLabel";
             this.calendarLabel.Size = new System.Drawing.Size(49, 13);
             this.calendarLabel.TabIndex = 2;
@@ -153,9 +161,9 @@
             // appCalendar
             // 
             this.appCalendar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.appCalendar.Location = new System.Drawing.Point(554, 54);
+            this.appCalendar.Location = new System.Drawing.Point(552, 54);
             this.appCalendar.Name = "appCalendar";
-            this.appCalendar.Size = new System.Drawing.Size(853, 434);
+            this.appCalendar.Size = new System.Drawing.Size(855, 434);
             this.appCalendar.TabIndex = 11;
             // 
             // delAppButton
@@ -201,11 +209,92 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Display Period";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(158, 500);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(238, 13);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Select entire row with arrow to update and delete";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(1145, 491);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(238, 13);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Select entire row with arrow to update and delete\r\n";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(523, 535);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Reports";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(605, 518);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(90, 57);
+            this.button1.TabIndex = 19;
+            this.button1.Text = "Appointment Types Per Month";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(731, 518);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(90, 57);
+            this.button2.TabIndex = 20;
+            this.button2.Text = "Consultant Schedules";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(846, 518);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(90, 57);
+            this.button3.TabIndex = 21;
+            this.button3.Text = "Appointments Per Customer";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(30, 490);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(122, 23);
+            this.button4.TabIndex = 22;
+            this.button4.Text = "Refresh Customers";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(552, 491);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(181, 23);
+            this.button5.TabIndex = 23;
+            this.button5.Text = "Refresh Apts";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1437, 601);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.delAppButton);
             this.Controls.Add(this.updateAppButton);
@@ -247,6 +336,14 @@
         private System.Windows.Forms.Button updateAppButton;
         private System.Windows.Forms.Button addAppButton;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
     }
 }
 
