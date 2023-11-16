@@ -138,6 +138,9 @@
       <DependentUpon>UpdateCustomer.cs</DependentUpon>
     </Compile>
     <Compile Include="UserActLogger.cs" />
+    <EmbeddedResource Include="AddApt.resx">
+      <DependentUpon>AddApt.Cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddCustomer.resx">
       <DependentUpon>AddCustomer.cs</DependentUpon>
     </EmbeddedResource>
@@ -156,6 +159,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UpdateApt.resx">
+      <DependentUpon>UpdateApt.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UpdateCustomer.resx">
       <DependentUpon>UpdateCustomer.cs</DependentUpon>
     </EmbeddedResource>

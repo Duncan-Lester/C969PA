@@ -16,5 +16,20 @@ namespace C969PA
         {
             InitializeComponent();
         }
+        public AddApt(string customer)
+        {
+            InitializeComponent();
+            customerBox.Text = customer;
+        }
+
+        private void addAptButton_Click(object sender, EventArgs e)
+        {
+            // INSERT
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

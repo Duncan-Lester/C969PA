@@ -217,12 +217,17 @@ namespace C969PA
 
         private void addApp_Click(object sender, EventArgs e)
         {
-            AddApt addApt = new AddApt();
+            string customer= $"{customerGrid.CurrentRow.Cells["Name"].Value}";
+            AddApt addApt = new AddApt(customer);
             addApt.Show();
         }
         private void updApp_Click(object sender, EventArgs e)
         {
-            UpdateApt updateApt = new UpdateApt();
+            string currCust = $"{appCalendar.CurrentRow.Cells["Customer"].Value}";
+            string currType = $"{appCalendar.CurrentRow.Cells["Type"].Value}";
+            string currStart = $"{appCalendar.CurrentRow.Cells["StartTime"].Value}";
+            string currEnd = $"{appCalendar.CurrentRow.Cells["EndTime"].Value}";
+            UpdateApt updateApt = new UpdateApt(currCust, currType,currStart,currEnd);
             updateApt.Show();
         }
         private void delApp_Click(object sender, EventArgs e)
