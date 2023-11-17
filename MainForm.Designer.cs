@@ -231,7 +231,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1276, 143);
+            this.label3.Location = new System.Drawing.Point(1286, 152);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 18;
@@ -239,21 +239,23 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1263, 181);
+            this.button1.Location = new System.Drawing.Point(1263, 190);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(90, 57);
             this.button1.TabIndex = 19;
             this.button1.Text = "Appointment Types Per Month";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(1263, 260);
+            this.button2.Location = new System.Drawing.Point(1263, 275);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(90, 57);
             this.button2.TabIndex = 20;
             this.button2.Text = "Consultant Schedules";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -263,6 +265,7 @@
             this.button3.TabIndex = 21;
             this.button3.Text = "Appointments Per Customer";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 

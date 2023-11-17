@@ -1,4 +1,5 @@
-﻿using Google.Protobuf.WellKnownTypes;
+﻿using C969PA.Reports;
+using Google.Protobuf.WellKnownTypes;
 using MySql.Data.MySqlClient;
 using MySqlX.XDevAPI.Relational;
 using System;
@@ -107,8 +108,6 @@ namespace C969PA
                 }
             }
             DataManager.setAppointments(apps);
-
-            // makes final DataSource to bind to the calendar and show user.
             var appArray = from row in parsedApps 
             select new {
                               AppointmentID = row.Key,
@@ -123,6 +122,7 @@ namespace C969PA
         public void updateCal()
         {
             appCalendar.DataSource= getCalendar(monthRadio.Checked);
+            reminder(appCalendar);
         }
 
         static public Array getCustomers()
@@ -273,6 +273,24 @@ namespace C969PA
         private void refreshButton_Click(object sender, EventArgs e)
         {
             updateCal();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            TypesReport tR = new TypesReport();
+            tR.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SchedulesReport sR = new SchedulesReport();
+            sR.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            CustAptsReport cR = new CustAptsReport();
+            cR.Show();
         }
     }
 }
