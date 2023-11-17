@@ -14,6 +14,7 @@ namespace C969PA
     public partial class UpdateCustomer : Form
     {
         public string oldName = "";
+        public MainForm mainFormObject;
         public UpdateCustomer()
         {
             InitializeComponent();
@@ -50,7 +51,9 @@ namespace C969PA
             MySqlCommand cmd = new MySqlCommand(custupdate, c);
             cmd.ExecuteNonQuery();
             c.Close();
+            mainFormObject.updateCustomers();
             Close();
+
         }
 
     }

@@ -46,7 +46,7 @@ namespace C969PA
                     int cityId = DataManager.createRecord(timestamp, userName, "city", $"'{cityBox.Text}', '{countryId}'");
                     int addressId = DataManager.createRecord(timestamp, userName, "address", $"'{addressBox.Text}', '', '{cityId}', '{zipBox.Text}', '{phoneNumberBox.Text}'");
                     int lastId= DataManager.createRecord(timestamp, userName, "customer", $"'{nameBox.Text}', '{addressId}', '{(checkBox1.Checked ? 1 : 0)}'");
-
+                    main.updateCustomers();
                     Close();
                     
                 }

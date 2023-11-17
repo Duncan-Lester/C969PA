@@ -179,6 +179,7 @@ namespace C969PA
         private void button1_Click(object sender, EventArgs e)
         {
             AddCustomer addCustomer = new AddCustomer();
+            addCustomer.main = this;
             addCustomer.Show();
         }
 
@@ -188,6 +189,7 @@ namespace C969PA
             string currPhone = $"{customerGrid.CurrentRow.Cells["Phone"].Value}";
             string currAddress = $"{customerGrid.CurrentRow.Cells["Address"].Value}";
             UpdateCustomer updateCustomer = new UpdateCustomer(currName,currPhone,currAddress);
+            updateCustomer.mainFormObject = this;
             updateCustomer.Show();
         }
 
@@ -227,7 +229,7 @@ namespace C969PA
             string currType = $"{appCalendar.CurrentRow.Cells["Type"].Value}";
             string currStart = $"{appCalendar.CurrentRow.Cells["StartTime"].Value}";
             string currEnd = $"{appCalendar.CurrentRow.Cells["EndTime"].Value}";
-            UpdateApt updateApt = new UpdateApt(currCust, currType,currStart,currEnd);
+            UpdateApt updateApt = new UpdateApt(currCust, currType,DateTime.Parse(currStart),DateTime.Parse(currEnd));
             updateApt.Show();
         }
         private void delApp_Click(object sender, EventArgs e)

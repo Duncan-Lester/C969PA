@@ -108,5 +108,18 @@ namespace C969PA
 
             return recId;
         }
+        static public int findCustomer(string customerName)
+        {
+            string query = $"Select customerID FROM customer Where customerName='{customerName}'";
+            MySqlConnection c = new MySqlConnection(conString);
+            c.Open();
+            MySqlCommand cmd = new MySqlCommand(query, c);
+            MySqlDataReader dr = cmd.ExecuteReader();
+            dr.Read();
+            int cID = Convert.ToInt32(dr[0]);
+            dr.Close();
+            c.Close();
+            return cID;
+        }
     }
 }
