@@ -51,6 +51,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.refreshButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.customerGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appCalendar)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -68,7 +69,7 @@
             // apptsLabel
             // 
             this.apptsLabel.AutoSize = true;
-            this.apptsLabel.Location = new System.Drawing.Point(918, 31);
+            this.apptsLabel.Location = new System.Drawing.Point(742, 27);
             this.apptsLabel.Name = "apptsLabel";
             this.apptsLabel.Size = new System.Drawing.Size(66, 13);
             this.apptsLabel.TabIndex = 1;
@@ -77,7 +78,7 @@
             // calendarLabel
             // 
             this.calendarLabel.AutoSize = true;
-            this.calendarLabel.Location = new System.Drawing.Point(990, 31);
+            this.calendarLabel.Location = new System.Drawing.Point(823, 27);
             this.calendarLabel.Name = "calendarLabel";
             this.calendarLabel.Size = new System.Drawing.Size(49, 13);
             this.calendarLabel.TabIndex = 2;
@@ -88,9 +89,9 @@
             this.weekRadio.AutoSize = true;
             this.weekRadio.Location = new System.Drawing.Point(163, 15);
             this.weekRadio.Name = "weekRadio";
-            this.weekRadio.Size = new System.Drawing.Size(61, 17);
+            this.weekRadio.Size = new System.Drawing.Size(54, 17);
             this.weekRadio.TabIndex = 3;
-            this.weekRadio.Text = "Weekly";
+            this.weekRadio.Text = "Week";
             this.weekRadio.UseVisualStyleBackColor = true;
             this.weekRadio.CheckedChanged += new System.EventHandler(this.monthRadioButton_CheckedChanged);
             // 
@@ -100,19 +101,19 @@
             this.monthRadio.Checked = true;
             this.monthRadio.Location = new System.Drawing.Point(86, 15);
             this.monthRadio.Name = "monthRadio";
-            this.monthRadio.Size = new System.Drawing.Size(62, 17);
+            this.monthRadio.Size = new System.Drawing.Size(55, 17);
             this.monthRadio.TabIndex = 5;
             this.monthRadio.TabStop = true;
-            this.monthRadio.Text = "Monthly";
+            this.monthRadio.Text = "Month";
             this.monthRadio.UseVisualStyleBackColor = true;
             this.monthRadio.CheckedChanged += new System.EventHandler(this.monthRadioButton_CheckedChanged);
             // 
             // exitButton
             // 
             this.exitButton.BackColor = System.Drawing.Color.Red;
-            this.exitButton.Location = new System.Drawing.Point(1109, 552);
+            this.exitButton.Location = new System.Drawing.Point(1214, 544);
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(244, 23);
+            this.exitButton.Size = new System.Drawing.Size(162, 45);
             this.exitButton.TabIndex = 6;
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = false;
@@ -163,13 +164,13 @@
             this.appCalendar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.appCalendar.Location = new System.Drawing.Point(552, 54);
             this.appCalendar.Name = "appCalendar";
-            this.appCalendar.Size = new System.Drawing.Size(855, 434);
+            this.appCalendar.Size = new System.Drawing.Size(602, 434);
             this.appCalendar.TabIndex = 11;
             // 
             // delAppButton
             // 
             this.delAppButton.BackColor = System.Drawing.Color.LightCoral;
-            this.delAppButton.Location = new System.Drawing.Point(1271, 511);
+            this.delAppButton.Location = new System.Drawing.Point(970, 515);
             this.delAppButton.Name = "delAppButton";
             this.delAppButton.Size = new System.Drawing.Size(75, 23);
             this.delAppButton.TabIndex = 14;
@@ -179,7 +180,7 @@
             // 
             // updateAppButton
             // 
-            this.updateAppButton.Location = new System.Drawing.Point(1190, 511);
+            this.updateAppButton.Location = new System.Drawing.Point(889, 515);
             this.updateAppButton.Name = "updateAppButton";
             this.updateAppButton.Size = new System.Drawing.Size(75, 23);
             this.updateAppButton.TabIndex = 13;
@@ -190,7 +191,7 @@
             // addAppButton
             // 
             this.addAppButton.BackColor = System.Drawing.Color.LightGreen;
-            this.addAppButton.Location = new System.Drawing.Point(1109, 511);
+            this.addAppButton.Location = new System.Drawing.Point(808, 515);
             this.addAppButton.Name = "addAppButton";
             this.addAppButton.Size = new System.Drawing.Size(75, 23);
             this.addAppButton.TabIndex = 12;
@@ -202,7 +203,7 @@
             // 
             this.groupBox1.Controls.Add(this.monthRadio);
             this.groupBox1.Controls.Add(this.weekRadio);
-            this.groupBox1.Location = new System.Drawing.Point(1148, 12);
+            this.groupBox1.Location = new System.Drawing.Point(895, 8);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(259, 40);
             this.groupBox1.TabIndex = 15;
@@ -221,7 +222,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(1145, 491);
+            this.label2.Location = new System.Drawing.Point(805, 495);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(238, 13);
             this.label2.TabIndex = 17;
@@ -230,7 +231,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(523, 535);
+            this.label3.Location = new System.Drawing.Point(1276, 143);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 18;
@@ -238,7 +239,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(605, 518);
+            this.button1.Location = new System.Drawing.Point(1263, 181);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(90, 57);
             this.button1.TabIndex = 19;
@@ -247,7 +248,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(731, 518);
+            this.button2.Location = new System.Drawing.Point(1263, 260);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(90, 57);
             this.button2.TabIndex = 20;
@@ -256,7 +257,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(846, 518);
+            this.button3.Location = new System.Drawing.Point(1263, 352);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(90, 57);
             this.button3.TabIndex = 21;
@@ -276,17 +277,28 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(452, 495);
+            this.label4.Location = new System.Drawing.Point(509, 544);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(259, 13);
             this.label4.TabIndex = 23;
             this.label4.Text = "Select a Name, then click Add for a new appointment";
+            // 
+            // refreshButton
+            // 
+            this.refreshButton.Location = new System.Drawing.Point(552, 494);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(147, 23);
+            this.refreshButton.TabIndex = 24;
+            this.refreshButton.Text = "Refresh Apts";
+            this.refreshButton.UseVisualStyleBackColor = true;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1437, 601);
+            this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -344,6 +356,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button refreshButton;
     }
 }
 

@@ -66,14 +66,14 @@
             // 
             this.typeBox.Location = new System.Drawing.Point(129, 55);
             this.typeBox.Name = "typeBox";
-            this.typeBox.Size = new System.Drawing.Size(118, 20);
+            this.typeBox.Size = new System.Drawing.Size(144, 20);
             this.typeBox.TabIndex = 21;
             // 
             // customerBox
             // 
             this.customerBox.Location = new System.Drawing.Point(129, 25);
             this.customerBox.Name = "customerBox";
-            this.customerBox.Size = new System.Drawing.Size(118, 20);
+            this.customerBox.Size = new System.Drawing.Size(144, 20);
             this.customerBox.TabIndex = 20;
             // 
             // endLabel
@@ -118,7 +118,7 @@
             this.endTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.endTimePicker.Location = new System.Drawing.Point(129, 135);
             this.endTimePicker.Name = "endTimePicker";
-            this.endTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.endTimePicker.Size = new System.Drawing.Size(144, 20);
             this.endTimePicker.TabIndex = 29;
             // 
             // startTimePicker
@@ -127,7 +127,7 @@
             this.startTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.startTimePicker.Location = new System.Drawing.Point(129, 109);
             this.startTimePicker.Name = "startTimePicker";
-            this.startTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.startTimePicker.Size = new System.Drawing.Size(144, 20);
             this.startTimePicker.TabIndex = 30;
             // 
             // UpdateApt

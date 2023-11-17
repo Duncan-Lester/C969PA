@@ -18,12 +18,13 @@ namespace C969PA
     public partial class UpdateApt : Form
     {
         public string oldName ="";
+        private int aId = 0;
         public UpdateApt()
         {
             InitializeComponent();
         }
 
-        public UpdateApt(string customer, string type, DateTime start, DateTime end)
+        public UpdateApt(string customer, string type, DateTime start, DateTime end, int aID)
         {
             InitializeComponent();
             customerBox.Text = customer;
@@ -31,16 +32,12 @@ namespace C969PA
             typeBox.Text = type;
             startTimePicker.Value = start;
             endTimePicker.Value = end;
+            aId = aID;
         }
 
         private void updAptButton_Click(object sender, EventArgs e)
         {
             // UPDATE
-            // ToString("yyyy-MM-dd HH:mm:ss")
-            //  DateTime Start = DateTime.Parse(newStart).ToUniversalTime();
-            // DateTime End = DateTime.Parse(newEnd.ToString("u")).ToUniversalTime();
-            //newEnd = End.ToString("yyyy-MM-dd HH:mm:ss");
-
             DateTime newstart = startTimePicker.Value.ToUniversalTime();
             DateTime newend = endTimePicker.Value.ToUniversalTime();
 
@@ -51,8 +48,9 @@ namespace C969PA
             MySqlConnection c = new MySqlConnection(DataManager.conString);
             c.Open();
 
+            //string oldStart = oldTime.ToString("yyyy-MM-dd HH:mm:ss");
             int uID=DataManager.getCurrentUserID();
-            string aptupdate = $"Update appointment SET customerId= '{newCust}', type= '{newType}',start= '{newstart.ToString("yyyy-MM-dd HH:mm:ss")}',end= '{newend.ToString("yyyy-MM-dd HH:mm:ss")}' WHERE customerId= '{cID}' and userId= '{uID}'";
+            string aptupdate = $"Update appointment SET customerId= '{newCust}', type= '{newType}',start= '{newstart.ToString("yyyy-MM-dd HH:mm:ss")}',end= '{newend.ToString("yyyy-MM-dd HH:mm:ss")}' WHERE appointmentId= '{aId}'";
             MySqlCommand com = new MySqlCommand(aptupdate, c);
             com.ExecuteNonQuery();
 

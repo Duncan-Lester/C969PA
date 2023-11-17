@@ -80,14 +80,14 @@
             // 
             this.customerBox.Location = new System.Drawing.Point(128, 30);
             this.customerBox.Name = "customerBox";
-            this.customerBox.Size = new System.Drawing.Size(118, 20);
+            this.customerBox.Size = new System.Drawing.Size(164, 20);
             this.customerBox.TabIndex = 5;
             // 
             // typeBox
             // 
             this.typeBox.Location = new System.Drawing.Point(128, 60);
             this.typeBox.Name = "typeBox";
-            this.typeBox.Size = new System.Drawing.Size(118, 20);
+            this.typeBox.Size = new System.Drawing.Size(164, 20);
             this.typeBox.TabIndex = 6;
             // 
             // addAptButton
@@ -118,7 +118,7 @@
             this.startTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.startTimePicker.Location = new System.Drawing.Point(128, 112);
             this.startTimePicker.Name = "startTimePicker";
-            this.startTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.startTimePicker.Size = new System.Drawing.Size(164, 20);
             this.startTimePicker.TabIndex = 31;
             // 
             // endTimePicker
@@ -127,14 +127,14 @@
             this.endTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.endTimePicker.Location = new System.Drawing.Point(128, 139);
             this.endTimePicker.Name = "endTimePicker";
-            this.endTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.endTimePicker.Size = new System.Drawing.Size(164, 20);
             this.endTimePicker.TabIndex = 32;
             // 
             // AddApt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(371, 235);
+            this.ClientSize = new System.Drawing.Size(324, 235);
             this.Controls.Add(this.endTimePicker);
             this.Controls.Add(this.startTimePicker);
             this.Controls.Add(this.cancelButton);

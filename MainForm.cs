@@ -201,14 +201,15 @@ namespace C969PA
                 MySqlConnection con = new MySqlConnection(DataManager.conString);
                 con.Open();
                 //delete from cust
+                string oldName = $"'{customerGrid.CurrentRow.Cells["Name"].Value}'";
                 string custUpdate = $"DELETE FROM customer" +
-                    $" WHERE customerName= '{customerGrid.CurrentRow.Cells["Name"].Value}'";
+                    $" WHERE customerName= {oldName}";
                 MySqlCommand com = new MySqlCommand(custUpdate, con);
                 int custUpdated = com.ExecuteNonQuery();
 
                 // delete from address
                 string addUpdate = $"Delete From address" +
-                $" Where address= '{customerGrid.CurrentRow.Cells["Name"].Value}'";
+                $" Where address= '{customerGrid.CurrentRow.Cells["Address"].Value}'";
                 com = new MySqlCommand(addUpdate, con);
                 int addUpdated = com.ExecuteNonQuery();
 
@@ -221,6 +222,7 @@ namespace C969PA
         {
             string customer= $"{customerGrid.CurrentRow.Cells["Name"].Value}";
             AddApt addApt = new AddApt(customer);
+            addApt.main = this;
             addApt.Show();
         }
         private void updApp_Click(object sender, EventArgs e)
@@ -229,12 +231,29 @@ namespace C969PA
             string currType = $"{appCalendar.CurrentRow.Cells["Type"].Value}";
             string currStart = $"{appCalendar.CurrentRow.Cells["StartTime"].Value}";
             string currEnd = $"{appCalendar.CurrentRow.Cells["EndTime"].Value}";
-            UpdateApt updateApt = new UpdateApt(currCust, currType,DateTime.Parse(currStart),DateTime.Parse(currEnd));
+            string apt = $"{appCalendar.CurrentRow.Cells["AppointmentID"].Value}";
+            UpdateApt updateApt = new UpdateApt(currCust, currType, DateTime.Parse(currStart), DateTime.Parse(currEnd), Int32.Parse(apt));
             updateApt.Show();
         }
         private void delApp_Click(object sender, EventArgs e)
         {
-            // del app with confirmation
+            {
+                DialogResult confirm = MessageBox.Show("Wait! This operation cannot be undone!", "Confirm Delete", MessageBoxButtons.YesNo);
+                if (confirm == DialogResult.Yes)
+                {
+                    MySqlConnection con = new MySqlConnection(DataManager.conString);
+                    con.Open();
+                    //delete from cust
+                    string aID = $"'{appCalendar.CurrentRow.Cells["AppointmentID"].Value}'";
+                    string aptDelete = $"DELETE FROM appointment" +
+                        $" WHERE appointmentId= {aID}";
+                    MySqlCommand com = new MySqlCommand(aptDelete, con);
+                    int custUpdated = com.ExecuteNonQuery();
+
+                    con.Close();
+                    updateCal();
+                }
+            }
         }
         private void monthRadioButton_CheckedChanged(object sender, EventArgs e)
         {
@@ -249,6 +268,11 @@ namespace C969PA
         private void button4_Click(object sender, EventArgs e)
         {
             updateCustomers();
+        }
+
+        private void refreshButton_Click(object sender, EventArgs e)
+        {
+            updateCal();
         }
     }
 }
