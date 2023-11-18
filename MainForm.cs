@@ -13,6 +13,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace C969PA
 {
@@ -188,7 +189,7 @@ namespace C969PA
             string currName = $"{customerGrid.CurrentRow.Cells["Name"].Value}";
             string currPhone = $"{customerGrid.CurrentRow.Cells["Phone"].Value}";
             string currAddress = $"{customerGrid.CurrentRow.Cells["Address"].Value}";
-            UpdateCustomer updateCustomer = new UpdateCustomer(currName,currPhone,currAddress);
+            UpdateCustomer updateCustomer = new UpdateCustomer(currName,currAddress,currPhone);
             updateCustomer.mainFormObject = this;
             updateCustomer.Show();
         }
@@ -200,18 +201,21 @@ namespace C969PA
             {
                 MySqlConnection con = new MySqlConnection(DataManager.conString);
                 con.Open();
+
+                // delete from address
+                string addDel = $"Delete From address" +
+                $" Where address= '{customerGrid.CurrentRow.Cells["Address"].Value}'";
+                MySqlCommand com = new MySqlCommand(addDel, con);
+                int addDeleted = com.ExecuteNonQuery();
+
                 //delete from cust
                 string oldName = $"'{customerGrid.CurrentRow.Cells["Name"].Value}'";
                 string custUpdate = $"DELETE FROM customer" +
                     $" WHERE customerName= {oldName}";
-                MySqlCommand com = new MySqlCommand(custUpdate, con);
-                int custUpdated = com.ExecuteNonQuery();
+                MySqlCommand com2 = new MySqlCommand(custUpdate, con);
+                int custUpdated = com2.ExecuteNonQuery();
 
-                // delete from address
-                string addUpdate = $"Delete From address" +
-                $" Where address= '{customerGrid.CurrentRow.Cells["Address"].Value}'";
-                com = new MySqlCommand(addUpdate, con);
-                int addUpdated = com.ExecuteNonQuery();
+
 
                 con.Close();
                 updateCustomers();

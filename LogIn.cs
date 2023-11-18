@@ -16,6 +16,7 @@ namespace C969PA
     public partial class LogIn : Form
     {
         public string message = "The username and password did not match.";
+        // for local dev, change to Localhost instead of 127.0.0.1 , and change it back to the num to turn in.  !!!
         public LogIn()
         {
             InitializeComponent();

@@ -25,6 +25,7 @@ namespace C969PA
             string location = "ALTER TABLE appointment Change Column location location VARCHAR(250) NULL";
             string contact = "ALTER TABLE appointment Change Column contact contact VARCHAR(250) NULL";
             string url = "ALTER TABLE appointment ALTER url SET DEFAULT 'unnecessary'";
+            string fka = "SET FOREIGN_KEY_CHECKS=0";
             MySqlConnection c = new MySqlConnection(DataManager.conString);
             c.Open();
             
@@ -39,7 +40,8 @@ namespace C969PA
             Location.ExecuteNonQuery();
             MySqlCommand Contact = new MySqlCommand(contact, c);
             Contact.ExecuteNonQuery();
-
+            MySqlCommand Keys = new MySqlCommand(fka, c);
+            Keys.ExecuteNonQuery();
 
             c.Close();
             Application.Run(new LogIn());

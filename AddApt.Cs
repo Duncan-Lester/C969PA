@@ -59,7 +59,7 @@ namespace C969PA
             DateTime start = startTimePicker.Value.ToUniversalTime();
             DateTime end = endTimePicker.Value.ToUniversalTime();
             int cID = DataManager.findCustomer($"{customerBox.Text}");
-            string blank = "blank";
+            
             try
             {
                 if (hasTimeConflict(start, end))
@@ -77,6 +77,7 @@ namespace C969PA
                         else
                         {
                             DataManager.createRecord(timestamp, uname, "appointment", $"'{cID}','{start.ToString("yyyy-MM-dd HH:mm:ss")}','{end.ToString("yyyy-MM-dd HH:mm:ss")}','{typeBox.Text}'",uID);
+                            Close();
                         }
                     }
                     catch (Exception ex)
@@ -88,7 +89,6 @@ namespace C969PA
             catch (Exception){
                 MessageBox.Show("Oops, your appointment time conflicts with another scheduled appointment.");
             };
-            Close();
         }
 
         private void cancelButton_Click(object sender, EventArgs e)

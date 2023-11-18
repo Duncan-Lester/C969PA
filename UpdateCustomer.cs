@@ -14,6 +14,7 @@ namespace C969PA
     public partial class UpdateCustomer : Form
     {
         public string oldName = "";
+        public string oldAddress = "";
         public MainForm mainFormObject;
         public UpdateCustomer()
         {
@@ -25,6 +26,7 @@ namespace C969PA
             nameBox.Text = name;
             oldName = name;
             addressBox.Text = addy;
+            oldAddress = addy;
             phoneNumberBox.Text = phoneNumber;
         }
 
@@ -46,10 +48,12 @@ namespace C969PA
             com.ExecuteNonQuery();
             //update Address Value and Phone
             string addupdate = $"Update address " +
-                $"Set address, phone  = '{addressBox.Text}','{phoneNumberBox.Text}' " +
-                $"Where customerName = '{nameBox.Text}'";
+                $"Set address= '{addressBox.Text}',phone= '{phoneNumberBox.Text}' " +
+                $"Where address = '{oldAddress}'";
             MySqlCommand cmd = new MySqlCommand(custupdate, c);
             cmd.ExecuteNonQuery();
+            MySqlCommand cmd2= new MySqlCommand(addupdate, c);
+            cmd2.ExecuteNonQuery();
             c.Close();
             mainFormObject.updateCustomers();
             Close();

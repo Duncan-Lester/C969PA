@@ -15,7 +15,7 @@ namespace C969PA.Reports
         public SchedulesReport()
         {
             InitializeComponent();
-            schedGrid.DataSource = schedReport();
+           // schedGrid.DataSource = schedReport();
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -23,9 +23,9 @@ namespace C969PA.Reports
             Close();
         }
 
-        private static Array schedReport()
-        {
+        //private static Array schedReport()
+       // {
             
-        }
+       //}
     }
 }
