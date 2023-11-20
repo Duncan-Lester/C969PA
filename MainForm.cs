@@ -154,7 +154,6 @@ namespace C969PA
                 customer.Add("phone", dr[1]);
                 dr.Close();
             }
-            //same final array logic as above, but to make customers
             var custArray = from row in customers
                            select new
                            {
@@ -264,10 +263,6 @@ namespace C969PA
             updateCal();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void button4_Click(object sender, EventArgs e)
         {

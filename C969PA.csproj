@@ -177,6 +177,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Reports\CustAptsReport.resx">
+      <DependentUpon>CustAptsReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\SchedulesReport.resx">
       <DependentUpon>SchedulesReport.cs</DependentUpon>
     </EmbeddedResource>
