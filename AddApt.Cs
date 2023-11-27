@@ -58,7 +58,7 @@ namespace C969PA
             string uname = DataManager.getCurrentUserName();
             DateTime start = startTimePicker.Value.ToUniversalTime();
             DateTime end = endTimePicker.Value.ToUniversalTime();
-            int cID = DataManager.findCustomer($"{customerBox.Text}");
+            
             
             try
             {
@@ -70,15 +70,23 @@ namespace C969PA
                 {
                     try
                     {
-                        if (isOutOfBizHours(startTimePicker.Value, endTimePicker.Value))
+                        try
                         {
-                            throw new Exception("Oops, Appointments need to be inside business hours from 9am to 5pm!");
+                            int cID = DataManager.findCustomer($"{customerBox.Text}");
+                            if (isOutOfBizHours(startTimePicker.Value, endTimePicker.Value))
+                             {
+                             throw new Exception("Oops, Appointments need to be inside business hours from 9am to 5pm!");
+                             }
+                             else
+                                {
+                                    DataManager.createRecord(timestamp, uname, "appointment", $"'{cID}','{start.ToString("yyyy-MM-dd HH:mm:ss")}','{end.ToString("yyyy-MM-dd HH:mm:ss")}','{typeBox.Text}'", uID);
+                                    Close();
+                                }
                         }
-                        else
+                        catch (Exception)
                         {
-                            DataManager.createRecord(timestamp, uname, "appointment", $"'{cID}','{start.ToString("yyyy-MM-dd HH:mm:ss")}','{end.ToString("yyyy-MM-dd HH:mm:ss")}','{typeBox.Text}'",uID);
-                            Close();
-                        }
+                            MessageBox.Show("Oops, Customer needs to be a listed Customer!");
+                        };
                     }
                     catch (Exception ex)
                     {
