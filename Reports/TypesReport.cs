@@ -34,33 +34,38 @@ namespace C969PA.Reports
             months.Add(1, "January"); months.Add(2, "February"); months.Add(3, "March"); months.Add(4, "April");
             months.Add(5, "May"); months.Add(6, "June"); months.Add(7, "July"); months.Add(8, "August");
             months.Add(9, "September"); months.Add(10, "October"); months.Add(11, "November"); months.Add(12, "December");
-
+            int rowcount = 0;
             foreach (var apt in DataManager.getAppointments().Values)
             {
                 int aptMonth = DateTime.Parse(apt["Start"].ToString()).Month;
                 bool duplicate = false;
                 foreach (AptReport a in aptReports)
                 {
-                    if(a.month.ToString() == months[aptMonth].ToString())
+                    if (a.month.ToString() == months[aptMonth].ToString() && a.aptType == apt["type"].ToString())
                     {
                         if (a.aptType == apt["type"].ToString())
                         {
                             duplicate = true;
+                            rowcount++;
                         }
                     }
-                     
+
                 }
-                if(!duplicate)
+
+                if (!duplicate)
                 {
                     AptReport aptReport = new AptReport();
                     aptReport.month = months[aptMonth].ToString();
                     aptReport.aptType = apt["type"].ToString();
-                    aptReport.quantity = DataManager.getAppointments().Where(i => i.Value["type"] == apt["type"] && DateTime.Parse(i.Value["Start"].ToString()).Month == aptMonth).Count();
+                    aptReport.quantity = DataManager.getAppointments().Where(i => i.Value["type"].ToString() == apt["type"].ToString()
+                    && DateTime.Parse(i.Value["Start"].ToString()).Month == aptMonth).Count();
                     // Lambda counts unique month and quantity of each type in unique month
                     aptReports.Add(aptReport);
                 }
-            }
 
+
+
+            }
             var aptArray = from row in aptReports
                            select new
                            {
@@ -75,7 +80,7 @@ namespace C969PA.Reports
 
 namespace C969PA
 {
-    class AptReport
+    struct AptReport
     {
         public string month;
         public string aptType;
