@@ -56,12 +56,13 @@ namespace C969PA
                 this.Hide();
                 MainForm MainForm = new MainForm();
                 MainForm.loginForm = this;
-                UserActLogger.writeUserLogInToLog(usernameBox.Text);
+                UserActLogger.writeUserLogInToLog(usernameBox.Text, true);
                 MainForm.Show();
             }
             else
             {
                 MessageBox.Show(message);
+                UserActLogger.writeUserLogInToLog(usernameBox.Text, false);
                 passwordBox.Text = "";
             }
         }
